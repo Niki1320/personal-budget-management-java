@@ -1,0 +1,17 @@
+// to run 
+ javac -classpath "C:\Program Files\Java\jdk-21\bin\mysql-connector-j-8.2.0.jar" Database.java Main.java
+ java -classpath ".;C:\Program Files\Java\jdk-21\bin\mysql-connector-j-8.2.0.jar" Main
+
+
+ if you encounter an error like this
+ {
+    Data truncation: Out of range value for column 'HOME_EXPENSES' at row 1
+ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'HOME_EXPENSES' at row 1
+ }
+ then you need to run this command in your mysql database
+ {
+   ALTER TABLE BUDGET_PLANS MODIFY COLUMN HOME_EXPENSES DECIMAL(8,2);
+
+ }
+idk what is the problem but this seems to fix it so lets use this for now 
+try if we can integrate this with the existing code to make it functional

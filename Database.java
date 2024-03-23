@@ -1,4 +1,4 @@
-package c325_project;
+// package c325_project;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,11 +16,11 @@ public class Database {
   String tableBANK_ACCOUNTS =
     "CREATE TABLE IF NOT EXISTS BANK_ACCOUNTS (\n" +
     "ACCOUNT_NAME VARCHAR(20),\n" +
-    "BALANCE DECIMAL(5,2));";
+    "BALANCE DECIMAL(10,2));"; // Modified precision to (10,2)
 
-  String tableBUDGET_PLANS =
+String tableBUDGET_PLANS =
     "CREATE TABLE IF NOT EXISTS BUDGET_PLANS (\n" +
-    "HOME_EXPENSES DECIMAL(5,2),\n" +
+    "HOME_EXPENSES DECIMAL(8,2),\n" +  // Modify the data type here
     "TRANSPORTATION DECIMAL(5,2),\n" +
     "HEALTH DECIMAL(5,2),\n" +
     "CHARITY DECIMAL(5,2),\n" +
@@ -30,7 +30,7 @@ public class Database {
 
   String tablePURCHASES =
     "CREATE TABLE IF NOT EXISTS PURCHASES (\n" +
-    "AMOUNT DECIMAL(5,2),\n" +
+    "AMOUNT DECIMAL(10,2),\n" + // Modified precision to (10,2)
     "DESCRIPTION VARCHAR(100),\n" +
     "DATETIME DATETIME,\n" +
     "NAME VARCHAR(20),\n" +
@@ -39,10 +39,78 @@ public class Database {
 
   String tableFIN_GOALS =
     "CREATE TABLE IF NOT EXISTS FIN_GOALS (\n" +
-    "AMOUNT DECIMAL(5,2),\n" +
+    "AMOUNT DECIMAL(10,2),\n" + // Modified precision to (10,2)
     "TARGET_DATE DATE,\n" +
     "PROGRESS INTEGER\n" +
     ");";
+
+  // INSERT INTO BANK_ACCOUNTS TABLE ========================================
+  public void insertBankAccount(String accountName, double balance) {
+    String values = "'" + accountName + "', " + balance;
+    InsertStatement("BANK_ACCOUNTS", values);
+  }
+
+  // INSERT INTO BUDGET_PLANS TABLE =========================================
+  public void insertBudgetPlan(
+    double homeExpenses,
+    double transportation,
+    double health,
+    double charity,
+    double dailyLiving,
+    double entertainment,
+    double financial
+  ) {
+    String values =
+      homeExpenses +
+      ", " +
+      transportation +
+      ", " +
+      health +
+      ", " +
+      charity +
+      ", " +
+      dailyLiving +
+      ", " +
+      entertainment +
+      ", " +
+      financial;
+    InsertStatement("BUDGET_PLANS", values);
+  }
+
+  // INSERT INTO PURCHASES TABLE ============================================
+  public void insertPurchase(
+    double amount,
+    String description,
+    String datetime,
+    String name,
+    String bank,
+    String category
+  ) {
+    String values =
+      amount +
+      ", '" +
+      description +
+      "', '" +
+      datetime +
+      "', '" +
+      name +
+      "', '" +
+      bank +
+      "', '" +
+      category +
+      "'";
+    InsertStatement("PURCHASES", values);
+  }
+
+  // INSERT INTO FIN_GOALS TABLE ============================================
+  public void insertFinancialGoal(
+    double amount,
+    String targetDate,
+    int progress
+  ) {
+    String values = amount + ", '" + targetDate + "', " + progress;
+    InsertStatement("FIN_GOALS", values);
+  }
 
   // </editor-fold>
 

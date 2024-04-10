@@ -1,0 +1,6 @@
+{
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.referencedLibraries": [
+        "path/to/mysql-connector-java-8.3.0.jar"
+    ]
+}

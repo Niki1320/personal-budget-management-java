@@ -1,4 +1,12 @@
 package java_project;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
+
+
+import javax.swing.JFrame;
+
 
 public class PurchaseViewerScreen extends javax.swing.JFrame {
 
@@ -75,8 +83,16 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         btnLog = new javax.swing.JButton();
         btnFix = new javax.swing.JButton();
         lblAmount = new javax.swing.JLabel();
+    
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Budget Planner");
+        setResizable(false);
+    
+        // Set the size of the JFrame to match the screen size
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds(0, 0, screenSize.width, screenSize.height);
 
-        dialogSavings.setMinimumSize(new java.awt.Dimension(354, 170));
+        //dialogSavings.setMinimumSize(new java.awt.Dimension(354, 170));
         dialogSavings.setResizable(false);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -96,44 +112,45 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         });
 
         javax.swing.GroupLayout dialogSavingsLayout = new javax.swing.GroupLayout(dialogSavings.getContentPane());
-        dialogSavings.getContentPane().setLayout(dialogSavingsLayout);
-        dialogSavingsLayout.setHorizontalGroup(
-            dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+dialogSavings.getContentPane().setLayout(dialogSavingsLayout);
+dialogSavingsLayout.setHorizontalGroup(
+    dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    .addGroup(dialogSavingsLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(dialogSavingsLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSavingsLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSavingsBalanceOK))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                    .addGroup(dialogSavingsLayout.createSequentialGroup()
-                        .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSavingsBalance)
-                            .addComponent(txtNewSavingsBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        dialogSavingsLayout.setVerticalGroup(
-            dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogSavingsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(lblSavingsBalance))
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtNewSavingsBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSavingsBalanceOK)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+                .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSavingsBalance)
+                    .addComponent(txtNewSavingsBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSavingsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSavingsBalanceOK)))
+        .addContainerGap())
+);
+dialogSavingsLayout.setVerticalGroup(
+    dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    .addGroup(dialogSavingsLayout.createSequentialGroup()
+        .addContainerGap()
+        .addComponent(jLabel5)
+        .addGap(18, 18, 18)
+        .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addComponent(jLabel10)
+            .addComponent(lblSavingsBalance))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(dialogSavingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addComponent(jLabel11)
+            .addComponent(txtNewSavingsBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(btnSavingsBalanceOK)
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+);
+
 
         dialogChecking.setMinimumSize(new java.awt.Dimension(354, 170));
         dialogChecking.setResizable(false);
@@ -382,14 +399,14 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnFix)
-                            .addComponent(btnTips))))
+                            .addComponent(btnTips)))) 
                 .addGap(23, 23, 23)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
 
-        pack();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }// </editor-fold>//GEN-END:initComponents
 
     //SEARCH BUTTOM ============================================================
@@ -538,10 +555,6 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
 
     //MAIN METHOD ==============================================================
     public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -563,7 +576,11 @@ public class PurchaseViewerScreen extends javax.swing.JFrame {
         //Display Form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PurchaseViewerScreen().setVisible(true);
+                PurchaseViewerScreen purchaseViewerScreen = new PurchaseViewerScreen();
+                GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                Rectangle bounds = env.getMaximumWindowBounds();
+                purchaseViewerScreen.setSize(bounds.width, bounds.height); // Set size to screen dimensions
+                purchaseViewerScreen.setVisible(true);
             }
         });
     }
